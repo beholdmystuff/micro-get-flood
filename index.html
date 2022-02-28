@@ -31,5 +31,17 @@
         {
             goBro = false;
         }
+
+        document.querySelector(".go").addEventListener("click", (event) =>
+        {
+            console.log("boop")
+            let label = event.target.getAttribute("value");
+
+            if (label == "Go!")
+                go();
+            else
+                stop();
+
+        })
     </script>
 </html>
